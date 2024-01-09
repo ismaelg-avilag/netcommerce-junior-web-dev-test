@@ -12,8 +12,7 @@ class Company extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'task_id'
+        'name'
     ];
 
     public function tasks()

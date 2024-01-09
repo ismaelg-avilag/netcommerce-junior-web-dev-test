@@ -17,8 +17,7 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->company,
-            'task_id' => TaskFactory::new()->create()->id
+            'name' => $this->faker->company
         ];
     }
 }

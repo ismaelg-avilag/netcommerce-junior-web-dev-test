@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('company_id')->constrained('companies');
             $table->string('name');
             $table->text('description');
             $table->boolean('is_completed')->default(false);
-            $table->timestamp('start_at')->default(now());
+            $table->timestamp('start_at')->nullable();
             $table->timestamp('expired_at')->nullable();
+            $table->timestamps();
         });
     }
 

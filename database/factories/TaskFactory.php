@@ -19,9 +19,11 @@ class TaskFactory extends Factory
         return [
             'name' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'user_id' => UserFactory::new()->create()->id,
-            'company_id' => CompanyFactory::new()->create()->id,
-            'is_completed' => $this->faker->boolean
+            'user_id' => $this->faker->numberBetween(1, 3),
+            'company_id' => $this->faker->numberBetween(1, 3),
+            'is_completed' => $this->faker->boolean,
+            'start_at' => now(),
+            'expired_at' => now()->addDays($this->faker->numberBetween(1, 30)),
         ];
     }
 }
